@@ -8,4 +8,4 @@
 
 其中backend-server.yaml中的Ingress使用ingress-nginx组件代理。
 
-性能测试见文章：
+性能测试见文章：[ingress-nginx 性能压测](https://amuguelove.github.io/post/ingress-nginx-benchmark)
