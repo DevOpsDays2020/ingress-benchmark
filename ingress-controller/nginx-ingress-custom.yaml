@@ -1,0 +1,12 @@
+controller:
+  kind: daemonset
+
+  config:
+    entries:
+      server-tokens: "false"
+      disable-access-log: "true"
+
+      keep-alive-requests: "10000"
+      upstream-keepalive-requests: "10000"
+      upstream-keepalive-connections: "1000"
+      max-worker-connections: "65536"

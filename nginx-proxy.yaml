@@ -16,7 +16,7 @@ spec:
         app: nginx-proxy
     spec:
       nodeSelector:
-        kubernetes.io/hostname: "10.0.0.43" # changeme
+        kubernetes.io/hostname: "xxx" # changeme
       initContainers:
         - name: setsysctl
           image: busybox

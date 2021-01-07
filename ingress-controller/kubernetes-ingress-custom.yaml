@@ -1,0 +1,30 @@
+
+controller:
+  image:
+    repository: docker.io/amuguelove/ingress-nginx
+    tag: "v0.41.0"
+    digest:
+    pullPolicy: IfNotPresent
+
+  config:
+    server-tokens: "false"
+    disable-access-log: "true"
+
+    keep-alive-requests: "10000"
+    upstream-keepalive-requests: "10000"
+    upstream-keepalive-connections: "1000"
+    max-worker-connections: "65536"
+
+  extraInitContainers:
+    - name: setsysctl
+      image: busybox
+      securityContext:
+        privileged: true
+      command:
+        - sh
+        - -c
+        - |
+          sysctl -w net.core.somaxconn=65535
+          sysctl -w net.ipv4.ip_local_port_range="1024 65535"
+          sysctl -w net.ipv4.tcp_tw_reuse=1
+          sysctl -w fs.file-max=1048576
