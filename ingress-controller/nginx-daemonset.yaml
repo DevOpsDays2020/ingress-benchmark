@@ -6,7 +6,6 @@ metadata:
   labels:
     app: my-nginx
 spec:
-#  replicas: 1
   selector:
     matchLabels:
       app: my-nginx
@@ -15,8 +14,6 @@ spec:
       labels:
         app: my-nginx
     spec:
-#      nodeSelector:
-#        kubernetes.io/hostname: "xxx" # changeme
       initContainers:
         - name: setsysctl
           image: busybox
